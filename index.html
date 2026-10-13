@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic To-Do Application</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-shape shape-one"></div>
+  <div class="background-shape shape-two"></div>
+
+  <main class="app-shell">
+    <section class="todo-card">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">TASK MANAGEMENT</p>
+          <h1>Dynamic <span>To-Do</span></h1>
+          <p class="subtitle">Plan your day, track your progress, and stay productive.</p>
+        </div>
+        <div class="task-count" aria-label="Number of active tasks">
+          <strong id="activeCount">0</strong>
+          <span>active</span>
+        </div>
+      </header>
+
+      <form id="taskForm" class="task-form" autocomplete="off">
+        <input
+          id="taskInput"
+          type="text"
+          maxlength="120"
+          placeholder="What needs to be done?"
+          aria-label="Task name"
+          required
+        >
+        <button type="submit" class="add-btn">+ Add Task</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Task filters">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="active" type="button">Active</button>
+          <button class="filter-btn" data-filter="completed" type="button">Completed</button>
+        </div>
+        <button id="clearCompleted" class="clear-btn" type="button">Clear completed</button>
+      </div>
+
+      <div id="progressBox" class="progress-box">
+        <div class="progress-label">
+          <span>Today's progress</span>
+          <strong id="progressText">0%</strong>
+        </div>
+        <div class="progress-track">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <section id="taskList" class="task-list" aria-live="polite"></section>
+
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">✓</div>
+        <h2 id="emptyTitle">No tasks yet</h2>
+        <p id="emptyText">Add your first task above and start getting things done.</p>
+      </div>
+
+      <footer class="app-footer">
+        <span id="footerText">Your tasks are saved automatically in your browser.</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
